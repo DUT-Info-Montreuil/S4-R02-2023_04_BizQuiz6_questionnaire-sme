@@ -6,6 +6,6 @@ import fr.iut.montreuil.R4_S02_2023_4.BizQuiz6_questionnaire_sme.entities.bo.Que
 
 public interface IServiceQuestionnaire {
 
-	public QuestionnaireBO chargerListeQuestion(File f); 
+	public QuestionnaireBO chargerListeQuestion(String chemin); 
 	
 }

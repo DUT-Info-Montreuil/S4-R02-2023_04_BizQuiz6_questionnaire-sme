@@ -1,18 +1,23 @@
 package fr.iut.montreuil.R4_S02_2023_4.BizQuiz6_questionnaire_sme.impl;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-import com.opencsv.CSVReader;
+import fr.iut.montreuil.R4_S02_2023_4.BizQuiz6_questionnaire_sme.entities.bo.QuestionnaireBO;
+import fr.iut.montreuil.R4_S02_2023_4.BizQuiz6_questionnaire_sme.modeles.IServiceQuestionnaire;
+import com.opencsv.*;
 import com.opencsv.exceptions.CsvValidationException;
 
-public class test {
-	public static void main (String[] args) {
+public class ServiceQuestionnaireImpl implements IServiceQuestionnaire {
+
+	@Override
+	public QuestionnaireBO chargerListeQuestion(String chemin)  {
 		FileReader fileReader;
 		CSVReader fileCSV;
 		try {
-			fileReader = new FileReader("/home/etudiants/info/psolanki/prive/S4/QD/questionsQuizz_V1.1.csv");
+			fileReader = new FileReader(chemin);
 			fileCSV = new CSVReader(fileReader);
 			String[] record;
 			
@@ -24,14 +29,17 @@ public class test {
 			}
 			
 		} catch (FileNotFoundException e) {
-			System.out.println("oui");
+			e.printStackTrace();
 		} catch (CsvValidationException e) {
-			System.out.println("oui2222");
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		} catch (IOException e) {
-			System.out.println("oui33333");
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 		
-	
+		return null;
 	}
+
 }
