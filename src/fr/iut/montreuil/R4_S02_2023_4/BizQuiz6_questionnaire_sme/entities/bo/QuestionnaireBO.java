@@ -17,6 +17,10 @@ public class QuestionnaireBO {
 	public ArrayList<QuestionDto> getListeDeQuestion() {
 		return listeDeQuestion;
 	}
-	
 
+	@Override
+	public String toString() {
+		return "QuestionnaireBO [listeDeQuestion=" + listeDeQuestion + "]";
+	}
+	
 }

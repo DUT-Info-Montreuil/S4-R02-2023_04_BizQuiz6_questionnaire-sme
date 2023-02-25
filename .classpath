@@ -10,6 +10,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Mockito"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/mockito"/>
-	<classpathentry kind="lib" path="/home/etudiants/info/psolanki/Téléchargements/opencsv-5.7.1.jar"/>
+	<classpathentry kind="lib" path="C:/eclipse/opencsv-5.7.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
