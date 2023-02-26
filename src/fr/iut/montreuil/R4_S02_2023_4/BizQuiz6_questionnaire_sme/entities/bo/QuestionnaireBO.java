@@ -20,7 +20,11 @@ public class QuestionnaireBO {
 
 	@Override
 	public String toString() {
-		return "QuestionnaireBO [listeDeQuestion=" + listeDeQuestion + "]";
+		String q="";
+		for(QuestionDto question : this.listeDeQuestion) {
+			q = q+"\n"+question.toString();
+		}
+		return q;
 	}
 	
 }

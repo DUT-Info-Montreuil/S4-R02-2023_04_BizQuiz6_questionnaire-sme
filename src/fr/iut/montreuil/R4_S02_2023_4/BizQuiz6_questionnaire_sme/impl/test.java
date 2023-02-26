@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Collections;
+import java.util.Iterator;
 
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
@@ -28,6 +30,11 @@ public class test {
 		} catch (IOException e) {
 			System.out.println("erreur de lecture du fichier");
 		}
-		System.out.println(questionnaire);
+		Collections.shuffle(questionnaire.getListeDeQuestion());
+		QuestionnaireBO questionnaire10 = new QuestionnaireBO();
+		for(int i=0 ; i<10 ; i++) {
+			questionnaire10.addQuestion(questionnaire.getListeDeQuestion().get(i));;
+		}	
+		System.out.println(questionnaire10);
 	}
 }
