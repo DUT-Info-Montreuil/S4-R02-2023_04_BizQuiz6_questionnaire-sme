@@ -8,4 +8,6 @@ public interface IServiceQuestionnaire {
 
 	public QuestionnaireBO chargerListeQuestion(String chemin); 
 	
+	public QuestionnaireBO fournirQuestionnaire10(QuestionnaireBO q);
+	
 }

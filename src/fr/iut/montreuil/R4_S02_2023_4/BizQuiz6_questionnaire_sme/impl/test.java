@@ -20,10 +20,11 @@ public class test {
 		String line="";
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(chemin));
-			String[] elements;			
+			String[] elements;
+			line=br.readLine();
 			while ((line=br.readLine()) != null) {
 				elements = line.split(";");
-                questionnaire.addQuestion(new QuestionDto(1, Integer.parseInt(elements[1]), elements[2], elements[3],elements[4],Integer.parseInt(elements[5]),elements[6],elements[7]));
+                questionnaire.addQuestion(new QuestionDto(Integer.parseInt(elements[0]), Integer.parseInt(elements[1]), elements[2], elements[3],elements[4],Integer.parseInt(elements[5]),elements[6],elements[7]));
 			}
 		} catch (FileNotFoundException e) {
 			System.out.println("fichier non trouvé");
