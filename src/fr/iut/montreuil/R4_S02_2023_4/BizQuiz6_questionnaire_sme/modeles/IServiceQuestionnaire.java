@@ -10,4 +10,6 @@ public interface IServiceQuestionnaire {
 	
 	public QuestionnaireBO fournirQuestionnaire10(QuestionnaireBO q);
 	
+	Public BilanStatDTO transmettreStat(QuestionnaireBO qbo);
+
 }

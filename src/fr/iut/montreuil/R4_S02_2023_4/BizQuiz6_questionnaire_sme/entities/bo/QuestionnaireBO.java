@@ -5,9 +5,14 @@ import fr.iut.montreuil.R4_S02_2023_4.BizQuiz6_questionnaire_sme.entities.dto.Qu
 
 public class QuestionnaireBO {
 	private ArrayList<QuestionDto> listeDeQuestion;
+	private int nbJouerQuestionnaire;
+	private int idQuestionnaire;
+	private static int idActuel = 0;
+
 	
 	public QuestionnaireBO() {
 		this.listeDeQuestion = new ArrayList<QuestionDto>();
+		this.idQuestionnaire = idActuel++;
 	}
 	
 	public void addQuestion(QuestionDto question ) {
@@ -16,6 +21,14 @@ public class QuestionnaireBO {
 
 	public ArrayList<QuestionDto> getListeDeQuestion() {
 		return listeDeQuestion;
+	}
+	
+	public int getIdQuestionnaire() {
+		return this.idQuestionnaire;
+	}
+	
+	public int getNbJouerQuestionnaire() {
+		return this.nbJouerQuestionnaire;
 	}
 
 	@Override

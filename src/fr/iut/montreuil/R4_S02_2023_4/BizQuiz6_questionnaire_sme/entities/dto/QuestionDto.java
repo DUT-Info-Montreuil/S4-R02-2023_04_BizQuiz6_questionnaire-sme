@@ -1,13 +1,6 @@
 package fr.iut.montreuil.R4_S02_2023_4.BizQuiz6_questionnaire_sme.entities.dto;
 
 public class QuestionDto {
-
-	@Override
-	public String toString() {
-		return "QuestionDto [IdQuestionnaire=" + IdQuestionnaire + ", numQuestion=" + numQuestion + ", langue=" + langue
-				+ ", libelleQuestion=" + libelleQuestion + ", reponse=" + reponse + ", difficulte=" + difficulte
-				+ ", explication=" + explication + ", reference=" + reference + "]";
-	}
 	private int IdQuestionnaire;
 	private int numQuestion;
 	private String langue;
@@ -16,6 +9,8 @@ public class QuestionDto {
 	private int difficulte;
 	private String explication;
 	private String reference;
+	private StatsQuestionDTO stats;
+	
 	public QuestionDto(int idQuestionnaire, int numQuestion, String langue, String libelleQuestion, String reponse,
 			int difficulte, String explication, String reference) {
 		
@@ -27,6 +22,8 @@ public class QuestionDto {
 		this.difficulte = difficulte;
 		this.explication = explication;
 		this.reference = reference;
+		this.stats = new StatsQuestionDTO();
+		
 	}
 	public int getIdQuestionnaire() {
 		return IdQuestionnaire;
@@ -75,5 +72,12 @@ public class QuestionDto {
 	}
 	public void setReference(String reference) {
 		this.reference = reference;
+	}
+	
+	@Override
+	public String toString() {
+		return "QuestionDto [IdQuestionnaire=" + IdQuestionnaire + ", numQuestion=" + numQuestion + ", langue=" + langue
+				+ ", libelleQuestion=" + libelleQuestion + ", reponse=" + reponse + ", difficulte=" + difficulte
+				+ ", explication=" + explication + ", reference=" + reference + "]";
 	}
 }
