@@ -11,5 +11,10 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Mockito"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/mockito"/>
 	<classpathentry kind="lib" path="C:/eclipse/opencsv-5.7.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/xxp90/OneDrive/Images/byte-buddy-1.12.19.jar"/>
+	<classpathentry kind="lib" path="C:/Users/xxp90/OneDrive/Images/byte-buddy-agent-1.12.19.jar"/>
+	<classpathentry kind="lib" path="C:/Users/xxp90/OneDrive/Images/mockito-core-4.11.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/xxp90/OneDrive/Images/mockito-junit-jupiter-4.11.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/xxp90/OneDrive/Images/objenesis-3.3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

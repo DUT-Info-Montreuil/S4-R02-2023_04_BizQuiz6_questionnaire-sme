@@ -1,6 +1,7 @@
 package fr.iut.montreuil.R4_S02_2023_4.BizQuiz6_questionnaire_sme.impl;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.io.IOException;

@@ -13,6 +13,7 @@ public class QuestionnaireBO {
 	public QuestionnaireBO() {
 		this.listeDeQuestion = new ArrayList<QuestionDto>();
 		this.idQuestionnaire = idActuel++;
+		this.nbJouerQuestionnaire = 0;
 	}
 	
 	public void addQuestion(QuestionDto question ) {
@@ -29,6 +30,26 @@ public class QuestionnaireBO {
 	
 	public int getNbJouerQuestionnaire() {
 		return this.nbJouerQuestionnaire;
+	}
+	
+	public void implementsNbJouerQuestionnaire() {
+		this.nbJouerQuestionnaire++;
+	}
+
+	public void setListeDeQuestion(ArrayList<QuestionDto> listeDeQuestion) {
+		this.listeDeQuestion = listeDeQuestion;
+	}
+
+	public void setNbJouerQuestionnaire(int nbJouerQuestionnaire) {
+		this.nbJouerQuestionnaire = nbJouerQuestionnaire;
+	}
+
+	public void setIdQuestionnaire(int idQuestionnaire) {
+		this.idQuestionnaire = idQuestionnaire;
+	}
+
+	public static void setIdActuel(int idActuel) {
+		QuestionnaireBO.idActuel = idActuel;
 	}
 
 	@Override
