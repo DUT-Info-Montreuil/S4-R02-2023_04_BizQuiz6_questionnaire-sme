@@ -74,6 +74,18 @@ public class QuestionDto {
 		this.reference = reference;
 	}
 	
+	public int getStatsNbCorrecte() {
+		return this.stats.getNbCorrecte();
+	}
+	
+	public int getStatsNbJouerQuestion() {
+		return this.stats.getNbJouerQuestion();
+	}
+	
+	public StatsQuestionDTO getStatsQuestionDTO() {
+		return stats;
+	}
+	
 	@Override
 	public String toString() {
 		return "QuestionDto [IdQuestionnaire=" + IdQuestionnaire + ", numQuestion=" + numQuestion + ", langue=" + langue

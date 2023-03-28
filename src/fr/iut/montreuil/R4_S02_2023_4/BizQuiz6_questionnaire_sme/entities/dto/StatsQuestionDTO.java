@@ -5,10 +5,11 @@ public class StatsQuestionDTO {
 	private int nbCorrecte;
 	
 	public StatsQuestionDTO() {
-		
+		 this.nbCorrecte = 0;
+		 this.nbJouerQuestion = 0;
 	}
 	
-	public int nbJouerQuestion() {
+	public int getNbJouerQuestion() {
 		return this.nbJouerQuestion;
 	}
 	

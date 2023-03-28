@@ -54,6 +54,11 @@ public class ServiceQuestionnaireImpl implements IServiceQuestionnaire {
 	
 	public BilanStatDTO transmettreStat(QuestionnaireBO qbo) {
 		BilanStatDTO bilanStat = new BilanStatDTO(qbo.getIdQuestionnaire(), qbo.getNbJouerQuestionnaire());
+		for (QuestionDto q : qbo.getListeDeQuestion()) {
+			bilanStat.addStatsQuestionDTO(q.getStatsQuestionDTO());
+		}
+		
+		return bilanStat;
 	}
 
 }

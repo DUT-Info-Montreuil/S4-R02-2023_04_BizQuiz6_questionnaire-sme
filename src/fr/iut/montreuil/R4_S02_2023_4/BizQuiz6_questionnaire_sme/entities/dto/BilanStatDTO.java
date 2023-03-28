@@ -20,8 +20,6 @@ public class BilanStatDTO {
 		statsQuestions.add(stat);
 	}
 	
-	
-	
 	public ArrayList<StatsQuestionDTO> getListStatsQuestionDTO() {
 		return statsQuestions;
 	}
