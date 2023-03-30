@@ -18,6 +18,7 @@ public class FichierBilanStatsDTOTest {
 	@BeforeEach
     void setUp() {
         ServiceQuestionnaireImpl service = new ServiceQuestionnaireImpl();
+        
     }
 	
 	@Test
@@ -31,12 +32,11 @@ public class FichierBilanStatsDTOTest {
     	questionnaire.setIdQuestionnaire(5);
     	//nbJouer = 8
     	questionnaire.setNbJouerQuestionnaire(8);
-    	//nbCorrecte de la question = 2
+    	//nbCorrecte de la question = 1
     	questionnaire.getListeDeQuestion().get(0).getStatsQuestionDTO().incrementerNbCorrecte();
-    	questionnaire.getListeDeQuestion().get(0).getStatsQuestionDTO().incrementerNbCorrecte();
-    	//nbJouer de la question = 1
+    	//nbJouer de la question = 2
     	questionnaire.getListeDeQuestion().get(0).getStatsQuestionDTO().incrementerNbJouer();
-    	
+    	questionnaire.getListeDeQuestion().get(0).getStatsQuestionDTO().incrementerNbJouer();   	
     	//Bilan du Mock
     	BilanStatDTO bilanAttendu = qsi.transmettreStat(questionnaire);
     	
@@ -46,8 +46,8 @@ public class FichierBilanStatsDTOTest {
 		assertEquals(bilanAttendu.getIdQuestionnaire(), 5);
 		assertEquals(bilanAttendu.getNbJouer(), 8);
 		assertEquals(bilanAttendu.getListStatsQuestionDTO().size(), 1);
-		assertEquals(bilanAttendu.getListStatsQuestionDTO().get(0).getNbCorrecte(), 2);
-		assertEquals(bilanAttendu.getListStatsQuestionDTO().get(0).getNbJouerQuestion(), 1);		
+		assertEquals(bilanAttendu.getListStatsQuestionDTO().get(0).getNbCorrecte(), 1);
+		assertEquals(bilanAttendu.getListStatsQuestionDTO().get(0).getNbJouerQuestion(), 2);		
     }
 
 }
