@@ -27,13 +27,10 @@ public class TransmettreStatsDTOMockOk implements IServiceQuestionnaire{
 	@Override
 	public BilanStatDTO transmettreStat(QuestionnaireBO qbo) {
 		BilanStatDTO bilan = new BilanStatDTO(qbo.getIdQuestionnaire(), qbo.getNbJouerQuestionnaire()); 
-		StatsQuestionDTO stat1 = new StatsQuestionDTO();
-		StatsQuestionDTO stat2 = new StatsQuestionDTO();
-		stat1.incrementerNbCorrecte();
-		stat1.incrementerNbCorrecte();
-		stat1.incrementerNbJouer();
-		bilan.addStatsQuestionDTO(stat1);
-		bilan.addStatsQuestionDTO(stat2);
+		
+		for(QuestionDto q : qbo.getListeDeQuestion()) {
+			bilan.addStatsQuestionDTO(q.getStatsQuestionDTO());
+		}
 		return bilan;
 	}
 

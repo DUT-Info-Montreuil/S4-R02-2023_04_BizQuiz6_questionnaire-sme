@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import fr.iut.montreuil.R4_S02_2023_4.BizQuiz6_questionnaire_sme.modeles.IServiceQuestionnaire;
 import fr.iut.montreuil.R4_S02_2023_4.BizQuiz6_questionnaire_sme.entities.bo.QuestionnaireBO;
 import fr.iut.montreuil.R4_S02_2023_4.BizQuiz6_questionnaire_sme.entities.dto.BilanStatDTO;
+import fr.iut.montreuil.R4_S02_2023_4.BizQuiz6_questionnaire_sme.entities.dto.QuestionDto;
 import fr.iut.montreuil.R4_S02_2023_4.BizQuiz6_questionnaire_sme.entities.dto.StatsQuestionDTO;
 import fr.iut.montreuil.R4_S02_2023_4.BizQuiz6_questionnaire_sme.impl.ServiceQuestionnaireImpl;
 import fr.iut.montreuil.R4_S02_2023_4.BizQuiz6_questionnaire_sme.impl.Mock.TransmettreStatsDTOMockOk;
@@ -22,32 +23,31 @@ public class FichierBilanStatsDTOTest {
 	@Test
     public void fichierQuestionnaireChargementCorrectLecture2emeQuestionTest() {
     	qsi = new TransmettreStatsDTOMockOk();	
-    	//Bilan du Mock
+    	
     	QuestionnaireBO questionnaire = new QuestionnaireBO();
+    	QuestionDto q1 = new QuestionDto(5,1,"FR","Quelle est la capitale de la France ?","Paris",1,"La capitale de la France est Paris.","https://fr.wikipedia.org/wiki/Paris");
+    	questionnaire.addQuestion(q1);
+    	//id = 5
     	questionnaire.setIdQuestionnaire(5);
+    	//nbJouer = 8
     	questionnaire.setNbJouerQuestionnaire(8);
+    	//nbCorrecte de la question = 2
+    	questionnaire.getListeDeQuestion().get(0).getStatsQuestionDTO().incrementerNbCorrecte();
+    	questionnaire.getListeDeQuestion().get(0).getStatsQuestionDTO().incrementerNbCorrecte();
+    	//nbJouer de la question = 1
+    	questionnaire.getListeDeQuestion().get(0).getStatsQuestionDTO().incrementerNbJouer();
+    	
+    	//Bilan du Mock
     	BilanStatDTO bilanAttendu = qsi.transmettreStat(questionnaire);
     	
-    	
-    	//Bilan du resulat
-    	BilanStatDTO bilanResult = new BilanStatDTO(5, 8);
-    	StatsQuestionDTO stat1 = new StatsQuestionDTO();
-		StatsQuestionDTO stat2 = new StatsQuestionDTO();
-		stat1.incrementerNbCorrecte();
-		stat1.incrementerNbCorrecte();
-		stat1.incrementerNbJouer();
-		bilanResult.addStatsQuestionDTO(stat2);
-		bilanResult.addStatsQuestionDTO(stat1);
+
 		
 		//test
-		assertEquals(bilanAttendu.getIdQuestionnaire(), bilanResult.getIdQuestionnaire());
-		assertEquals(bilanAttendu.getNbJouer(), bilanResult.getNbJouer());
-		assertEquals(bilanAttendu.getListStatsQuestionDTO().size(), bilanResult.getListStatsQuestionDTO().size());
-		assertEquals(bilanAttendu.getListStatsQuestionDTO().get(0).getNbCorrecte(), stat1.getNbCorrecte());
-		assertEquals(bilanAttendu.getListStatsQuestionDTO().get(1).getNbCorrecte(), stat2.getNbCorrecte());
-		assertEquals(bilanAttendu.getListStatsQuestionDTO().get(0).getNbJouerQuestion(), stat1.getNbJouerQuestion());
-		assertEquals(bilanAttendu.getListStatsQuestionDTO().get(1).getNbJouerQuestion(), stat2.getNbJouerQuestion());		
-    	
+		assertEquals(bilanAttendu.getIdQuestionnaire(), 5);
+		assertEquals(bilanAttendu.getNbJouer(), 8);
+		assertEquals(bilanAttendu.getListStatsQuestionDTO().size(), 1);
+		assertEquals(bilanAttendu.getListStatsQuestionDTO().get(0).getNbCorrecte(), 2);
+		assertEquals(bilanAttendu.getListStatsQuestionDTO().get(0).getNbJouerQuestion(), 1);		
     }
 
 }
